@@ -1,0 +1,157 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    color: #444;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+textarea, input, button {
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+textarea {
+    resize: none;
+    height: 60px;
+}
+
+button {
+    background: linear-gradient(to right, #ff6a88, #ff99ac);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background: linear-gradient(to right, #ff99ac, #ff6a88);
+    transform: translateY(-2px);
+}
+
+/* Message Card Styles */
+.message-card {
+    background: #f9f9f9;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.message-card .user {
+    font-weight: bold;
+    color: #333;
+}
+
+.message-card .time {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.message-card .text {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.message-card button, .message-card a {
+    font-size: 0.9rem;
+    background: #e4e4e4;
+    color: #555;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 10px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.message-card button:hover, .message-card a:hover {
+    background: #d4d4d4;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    border: 1px solid #ff4d4d;
+    padding: 8px;
+    border-radius: 5px;
+    background: #ffe6e6;
+}
+
+
+/* Comments Section */
+.comments-section {
+    margin-top: 15px;
+    padding-left: 10px;
+    border-left: 3px solid #ff6a88;
+}
+
+.comments-section .comment {
+    padding: 10px;
+    margin: 5px 0;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section .comment .user {
+    font-weight: bold;
+    color: #333;
+}
+
+.comments-section .comment .time {
+    color: #888;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+/* Footer Logout Link */
+footer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+footer a {
+    font-size: 1rem;
+    color: #ff6a88;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #ff99ac;
+}

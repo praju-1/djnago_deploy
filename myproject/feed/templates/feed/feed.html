@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Feed</h2>
+
+        <!-- Post a Message -->
+        <form method="POST">
+            {% csrf_token %}
+            <textarea name="text" placeholder="What's on your mind?" required></textarea>
+            <button type="submit">Post Message</button>
+        </form>
+
+        <!-- Display Messages -->
+        {% for message in messages %}
+        <div class="message-card">
+            <div class="user">{{ message.user.username }}</div>
+            <div class="time">{{ message.created_at|date:"Y-m-d H:i:s" }}</div>
+            <div class="text">{{ message.text }}</div>
+
+            <!-- Like and Delete Buttons -->
+            <button onclick="location.href='{% url 'like_message' message.id %}'">Like</button>
+            {% if message.user == request.user %}
+            <a href="{% url 'delete_message' message.id %}">Delete</a>
+            {% endif %}
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <form method="POST" action="{% url 'add_comment' message.id %}">
+                    {% csrf_token %}
+                    <textarea name="text" placeholder="Add a comment..." required></textarea>
+                    <button type="submit">Comment</button>
+                </form>
+
+                <!-- List of Comments -->
+                {% for comment in message.comments.all %}
+                <div class="comment">
+                    <div class="user">{{ comment.user.username }}</div>
+                    <div class="time">{{ comment.created_at|date:"Y-m-d H:i:s" }}</div>
+                    <div class="text">{{ comment.text }}</div>
+                    <button onclick="location.href='{% url 'like_comment' comment.id %}'">Like</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <footer>
+            <a href="/users/logout/">Logout</a>
+        </footer>
+    </div>
+</body>
+</html>
